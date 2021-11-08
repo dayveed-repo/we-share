@@ -1,0 +1,20 @@
+.profiler-result {
+    display: none;
+}
+
+.alert {
+    color: red
+}
+
+.notice {
+    color: green
+}
+
+.users::-webkit-scrollbar {
+    display: none;
+}
+
+#tweet_content, #content {
+    resize: none
+}
+

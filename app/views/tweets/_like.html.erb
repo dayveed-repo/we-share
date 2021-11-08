@@ -1,0 +1,9 @@
+<% unless tweet.likes.find_by(user_id: current_user.id) %>
+    <%= link_to like_tweet_path(id: tweet.id), method: :post, remote: true  do %>
+        <i class="far fa-heart"></i>
+    <% end %>
+<% else %>
+    <%= link_to like_tweet_path(id: tweet.id), method: :post, remote: true do %>
+        <i class="fas fa-heart text-red-400"></i>
+    <% end %>     
+<% end %>

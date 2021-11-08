@@ -1,0 +1,31 @@
+ <div class="space-y-4">
+    <div class="flex items-center justify-between"><h1 class="font-bold text-gray-700 hover:underline cursor-pointer">@<%= @tweet.user.username %></h1> <p class="text-sm">• July 19th, 2021</p></div>
+    <p class="text-gray-800 text-lg"><%= @tweet.content %></p>
+
+    <div class="w-full border-t-2 border-b-2 flex items-center md:space-x-10 py-3">
+        <div class="flex items-center cursor-pointer text-lg text-gray-700 space-x-2">
+            <%= render 'tweets/like', tweet: @tweet, showpage: true %>
+            <p><%= @tweet.likes.count %></p>                  
+        </div>
+
+        <%= link_to new_tweet_path(parent_id: @tweet.id, main_id: @main_id) do %>
+        <div class="flex items-center cursor-pointer text-lg text-gray-700 space-x-2">
+            <i class="far fa-comment"></i>
+            <p><%= @replies %></p>                    
+        </div>
+        <% end %>
+
+        <div class="flex items-center cursor-pointer text-lg text-gray-700 space-x-2">
+            <i class="far fa-bookmark"></i>
+            <p>bookmark</p>                    
+        </div>
+    </div>
+
+    <h3 class="font-semibold text-sm">replies(<%= @replies %>)</h3>    
+
+    <div class="divide-y divide-gray-300">        
+        <% @tweet.tweets.each do |twee| %>
+            <%= render 'tweets/tweetComment', tweet: twee %>
+        <% end %>
+    </div>
+</div>

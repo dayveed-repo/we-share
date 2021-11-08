@@ -1,0 +1,38 @@
+<div class="w-full h-screen flex flex-col">
+    <%= render 'tweets/navbar' %>
+
+    <div class="px-5 pt-3 w-full bg-gray-100 flex-grow flex justify-center">
+        <div class="w-full max-w-2xl h-full">
+           <div class="w-full bg-white p-3 space-y-4 rounded-lg border">
+                <div class="flex items-center space-x-10">
+                    <p class="font-semibold text-gray-700">Username</p>
+                    <p class="text-lg ">Dayveed</p>
+                </div>
+
+                <div class="flex items-center space-x-10">
+                    <p class="font-semibold text-gray-700">email:</p>
+                    <p class="text-lg ">ebirenidavid@gmail.com</p>
+                </div>
+
+                <div class="flex items-center space-x-10">
+                    <p class="font-semibold text-gray-700">created at:</p>
+                    <p class="text-lg ">11, june 2021</p>
+                </div>
+
+                <div class="flex items-center space-x-10">
+                    <h3>Following: 12</h3>
+                    <h3>Followers: 14</h3>
+                    <%= button_to "follow", root_path %>
+                </div>
+           </div>
+        
+            <h2>Tweet: 23</h2>
+
+            <div>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>

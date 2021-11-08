@@ -1,0 +1,20 @@
+<div class="w-64 mr-0 sticky top-20 h-80">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    
+    <div class="w-full bg-white border bg-white max-h-72 overflow-y-scroll users">
+        <% @users.each do |user| %>
+            <%= link_to user_path(id: user.id) do %>
+                <div class="flex items-center px-3 py-1 w-full justify-between border-b hover:bg-blue-100 cursor-pointer">
+                    <p class="font-semibold text-sm hover:underline cursur-pointer">@<%= user.username %></p>
+                    <button class="hover:bg-gray-200 px-3 py-1 rounded-lg">follow</button>
+                </div>
+            <% end %>
+            
+        <% end %>
+    </div>
+
+    <% if @at_index %>
+        <button class="px-5 py-2 bg-gray-900 rounded-lg text-white mt-10"><%= link_to 'New Tweet', new_tweet_path %></button>
+    <% end %>
+</div>

@@ -1,0 +1,19 @@
+<% unless params[:main_id] %>
+    <div class="mb-5 text-center">
+        <h1 class="mb-3 text-3xl font-bold">New Tweet</h1>
+        <p class="text-sm text-gray-600">let users know whats happening</p>
+    </div>
+<% else %>
+    <div class="flex items-center space-x-2">
+        <h1 class="text font-semibold">reply @<%= Tweet.find(params[:main_id]).user.username %> </h1>
+        
+        <% unless params[:parent_id] == params[:main_id] %>
+            <p class="text font-semibold">, @<%= Tweet.find(params[:parent_id]).user.username %></p>
+        <% end %>
+    </div>
+
+    <div class="w-full border-l-4 border-blue-600 flex items-center py-2 pl-2 space-x-1">
+        <p class="text-sm font-semibold">tweet - </p>
+        <p class=""><%= Tweet.find(params[:parent_id]).content %></p>
+    </div>
+<% end %>
