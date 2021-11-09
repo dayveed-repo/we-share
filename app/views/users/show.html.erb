@@ -22,7 +22,9 @@
                 <div class="flex items-center space-x-10">
                     <h3>Following: 12</h3>
                     <h3>Followers: 14</h3>
-                    <%= button_to "follow", root_path %>
+                    <% unless current_user.id == @user.id %>
+                        <%= render 'users/follow_and_unfollow', user: @user %>
+                    <% end %>
                 </div>
            </div>
         

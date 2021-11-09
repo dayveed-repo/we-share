@@ -3,7 +3,7 @@ class LikesController < ApplicationController
     @like = Like.new()
 
     if @like.save
-      ActionCable.server.broadcast("LikeChannel", "i just liked")
+      # ActionCable.server.broadcast("LikeChannel", "i just liked")
     else
       redirect_to 'likes#destroy'
       # redirect_to url_for(:controller => :likes_controller, :action => :destroy)
@@ -24,7 +24,6 @@ class LikesController < ApplicationController
       @like = Like.new(likeable_id: params[:id], likeable_type: 'Tweet', user_id: current_user.id) 
       
       if @like.save
-        ActionCable.server.broadcast("LikeChannel", "i just liked")
       end
 
     end

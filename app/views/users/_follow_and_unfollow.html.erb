@@ -1,0 +1,15 @@
+<%
+=begin%>
+ <% unless user.followers.where(follower_id: current_user.id) == [] %>
+    
+<% else %>
+    <%= link_to follow_user_path(user_id: user.id), method: :post, local: true do %>
+        <p class="hover:bg-gray-200 px-3 py-1 rounded-lg">follow</p>
+    <% end %>
+<% end %> 
+<%
+=end%>
+
+<%= link_to follow_user_path(user_id: user.id), method: :post, local: true do %>
+    <p class="hover:bg-gray-200 px-3 py-1 rounded-lg"><%= @inner_text %></p>
+<% end %>

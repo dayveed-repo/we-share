@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   # resources :likes, only: [:create, :destroy]
   post '/like/:id', to: 'likes#like', as: 'like_tweet'
+  post '/follow/:id', to: 'relationships#follow', as: 'follow_user'
 end
