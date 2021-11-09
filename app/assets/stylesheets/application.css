@@ -18,3 +18,12 @@
     resize: none
 }
 
+.badge {
+    width: fit-content;
+    font-size: 10px;
+    top: -10px;
+    right: -8px;
+    padding: 2px 4px;
+    border-radius: 50%;
+}
+

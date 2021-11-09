@@ -13,6 +13,10 @@
 
       <div class="flex items-center space-x-5">
         <p class="font-medium text-white hover:text-gray-200"><%= link_to "#{current_user.username}", current_user %></p>
+        <div class="flex relative">
+          <span class="rounded-full absolute bg-red-600 text-white badge">3</span>
+          <i class="fas fa-bell text-lg text-white"></i>
+        </div>
         <button class="px-3 py-1 bg-red-500 rounded-sm text-white"><%= link_to 'logout', destroy_user_session_path, method: :delete %></button>
       </div>
   </div>

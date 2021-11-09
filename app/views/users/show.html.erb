@@ -20,8 +20,8 @@
                 </div>
 
                 <div class="flex items-center space-x-10">
-                    <h3 id="following_show">Following: <%= @user.following.count %></h3>
-                    <h3 id="followers_show">Followers: <%= @user.followers.count %></h3>
+                    <h3 class="font-semibold text-gray-700" id="following_show">Following: <%= @user.following.count %></h3>
+                    <h3 class="font-semibold text-gray-700" id="followers_show">Followers: <%= @user.followers.count %></h3>
                     
                     <% unless current_user.id == @user.id %>
                         <%= render 'users/follow_and_unfollow', user: @user %>
@@ -29,10 +29,40 @@
                 </div>
            </div>
         
-            <h2>Tweet: 23</h2>
+            <h2 class="mt-4 text-lg font-medium">Tweet: <%= @tweets.count %></h2>
 
-            <div>
+            <div class="mt-4 pb-20">
+                <% @tweets.each do |tweet|  %>
+                    <div class="w-full flex items-center space-x-0 mb-5">
+                        <div class="w-10 h-0.5 bg-gray-300"></div>
+                        
+                        <div class="flex mr-auto flex-col max-w-xl bg-white px-3 py-2 border rounded-md cursor-pointer hover:shadow-lg space-y-3">
+                            <div class="flex items-center space-x-5">
+                                <h4 class="font-bold text-gray-700 text-sm hover:underline">@<%= tweet.user.username %></h4>
+                                <p class="text-sm">• July 19th, 2021</p>
+                            </div>
 
+                            <%= link_to tweet do %>
+                                <p class="text-gray-800"><%= tweet.content %></p>
+                            <% end %>
+
+                            <div class="flex items-center justify-between sm:space-x-6 sm:justify-start">
+                                <div class="flex items-center cursor-pointer text-xs text-gray-700 space-x-1 hover:text-red-500">
+                                    <%= render 'tweets/like', tweet: tweet %>
+                                    <p><%= tweet.likes.count %></p>                    
+                                </div>
+
+                                <%= link_to tweet do %>
+                                <div class="flex items-center cursor-pointer text-xs text-gray-700 space-x-1 hover:text-blue-500">
+                                    <i class="far fa-comment"></i>
+                                    <p><%= Tweet.where(main_id: tweet.id).count %></p>                    
+                                </div>
+                                <% end %>
+                            </div>
+                        </div>
+                    
+                    </div>
+                <% end %>
             </div>
         </div>
 
