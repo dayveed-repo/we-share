@@ -1,4 +1,4 @@
-class Noticed::NotificationChannel < ApplicationCable::Channel
+class NotificationChannel < ApplicationCable::Channel
     def subscribed
       stream_from "NotificationChannel#{current_user.id}"
     end

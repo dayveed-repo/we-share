@@ -1,6 +1,6 @@
 import consumer from "./consumer"
 
-consumer.subscriptions.create("Noticed::NotificationChannel", {
+consumer.subscriptions.create({ channel: "NotificationChannel" }, {
   connected() {
     // Called when the subscription is ready for use on the server
     console.log("connected to not socket")

@@ -12,7 +12,6 @@ class RelationshipsController < ApplicationController
       @new_rel.save
 
       ActionCable.server.broadcast("LikeChannel", {text: "unfollow", followers: User.find(params[:id]).followers.count, following: User.find(params[:id]).following.count})
-      CommentNotification.with(tweet_info: "#{current_user.username} started following you").deliver(User.find(params[:id]))
     end
   end
 
