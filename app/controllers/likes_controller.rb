@@ -1,29 +1,18 @@
 class LikesController < ApplicationController
-  def create
-    @like = Like.new()
-
-    if @like.save
-      # ActionCable.server.broadcast("LikeChannel", "i just liked")
-    else
-      redirect_to 'likes#destroy'
-      # redirect_to url_for(:controller => :likes_controller, :action => :destroy)
-    end
-
-  end 
-
- 
   def like
     if Tweet.find(params[:id]).likes.find_by(user_id: current_user.id)
       @like = Tweet.find(params[:id]).likes.find_by(user_id: current_user.id)
 
       if @like.destroy
-        ActionCable.server.broadcast("LikeChannel", "i just unliked")
+        # ActionCable.server.broadcast("LikeChannel", "i just unliked")
       end
 
     else
       @like = Like.new(likeable_id: params[:id], likeable_type: 'Tweet', user_id: current_user.id) 
       
       if @like.save
+        @tweet = Tweet.find(@like.likeable_id)
+        CommentNotification.with(tweet_info: "#{current_user.username} liked your tweet").deliver(@tweet.user)
       end
 
     end

@@ -36,6 +36,7 @@ class TweetsController < ApplicationController
             flash[:notice] = 'posted tweet successfully'
             if @tweet.parent
                 redirect_to @tweet.parent
+                CommentNotification.with(tweet_info: "#{current_user.username} commented on your tweet").deliver(User.find(@tweet.parent.user.id))
             else
                 redirect_to @tweet
             end
