@@ -68,5 +68,5 @@ test:
 production:
   <<: *default
   database: we_share_production
-  username: we_share
-  password: <%= ENV['WE_SHARE_DATABASE_PASSWORD'] %>
+  username: dayveed
+  password: tarowei7
