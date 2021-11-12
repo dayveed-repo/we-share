@@ -13,8 +13,8 @@
             
             <div class="flex mr-auto flex-col max-w-lg bg-white px-3 py-2 border rounded-md cursor-pointer hover:shadow-lg space-y-3">
                 <div class="flex items-center space-x-5">
-                    <h4 class="font-bold text-gray-700 text-sm hover:underline">@<%= tweet.user.username %></h4>
-                    <p class="text-sm">• July 19th, 2021</p>
+                    <h4 class="font-bold text-gray-700 text-sm hover:underline">@<%= link_to "#{tweet.user.username}", user_path(id: tweet.user.id) %></h4>
+                    <p class="text-xs text-gray-500"><%= tweet.created_at.strftime("%b %d %Y") %></p>
                 </div>
 
                 <%= link_to tweet do %>

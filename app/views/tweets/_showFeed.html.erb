@@ -1,5 +1,5 @@
  <div class="space-y-4">
-    <div class="flex items-center justify-between"><h1 class="font-bold text-gray-700 hover:underline cursor-pointer">@<%= @tweet.user.username %></h1> <p class="text-sm">• July 19th, 2021</p></div>
+    <div class="flex items-center justify-between"><h1 class="font-bold text-gray-700 hover:underline cursor-pointer">@<%= link_to "#{@tweet.user.username}", user_path(id: @tweet.user.id) %></h1> <p class="text-sm"><%= @tweet.created_at.strftime("%b %d %Y") %></p></div>
     <p class="text-gray-800 text-lg"><%= @tweet.content %></p>
 
     <div class="w-full border-t-2 border-b-2 flex items-center md:space-x-10 py-3">

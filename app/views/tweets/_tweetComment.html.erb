@@ -3,7 +3,7 @@
 
         <%= link_to tweet_path(main_id: tweet.main_id, id: tweet.id) do%>
         <div class="flex-grow flex flex-col space-y-3 p-2 hover:bg-gray-200 cursor-pointer">
-            <div class="flex items-center space-x-10"><h1 class="font-bold text-gray-700 text-xs hover:underline cursor-pointer">@<%= tweet.user.username %></h1> <p class="text-xs">• July 19th, 2021</p></div>
+            <div class="flex items-center space-x-10"><h1 class="font-bold text-gray-700 text-xs hover:underline cursor-pointer">@<%= link_to "#{tweet.user.username}", user_path(id: tweet.user.id) %></h1> <p class="text-xs text-gray-500"><%= tweet.created_at.strftime("%b %d %Y") %></p></div>
             
             <p class="text-gray-800 text-sm"><%= tweet.content %></p> 
             
