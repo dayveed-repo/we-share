@@ -2,12 +2,6 @@
 
 one:
   content: MyString
-  user_id: 1
-  parent_id: 1
-  tweet_id: 1
 
 two:
   content: MyString
-  user_id: 1
-  parent_id: 1
-  tweet_id: 1
