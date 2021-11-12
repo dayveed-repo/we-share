@@ -68,5 +68,3 @@ test:
 production:
   <<: *default
   database: we_share_production
-  username: dayveed
-  password: tarowei7
